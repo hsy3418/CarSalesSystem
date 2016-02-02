@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <h:head>
+        <title>Car sales system home</title>
+         <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body>
+               <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                        </li>
+                        <li>
+                            <a href="../customer/index.xhtml">Search Car</a>
+
+                        </li>
+                        <li>
+                            <a href="viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        
+        <div class="searchResult">
+             <h:form>
+                <p:link value="Add new Customer" outcome="addCustomer"></p:link>
+            <br></br>
+                <p:dataTable var="customer" value="#{userControler.searchCustomer()}">
+                    <p:column>
+                        <f:facet name="header">Id Number</f:facet>
+                        <p:outputLabel value="#{customer.id}"></p:outputLabel>
+                    </p:column>   
+                    <p:column>
+                        <f:facet name="header">First Name</f:facet>
+                        <p:outputLabel value="#{customer.firstnam}"></p:outputLabel>
+                    </p:column> 
+                    <p:column>
+                        <f:facet name="header">Last Name</f:facet>
+                        <p:outputLabel value="#{customer.lastname}"></p:outputLabel>
+                    </p:column> 
+                    <p:column>
+                        <f:facet name="header">Customer Email</f:facet>
+                        <p:outputLabel value="#{customer.email}"></p:outputLabel>
+
+                    </p:column>     
+                     <p:column>
+                <f:facet name="header">Option</f:facet>
+                <h:commandLink value="Delete" action="#{userControler.delete(customer)}" onclick="return confirm('Are you sure?')">
+                </h:commandLink> |      
+                <h:commandLink value="Edit"  action="#{userControler.edit(customer)}">
+                </h:commandLink> |
+                <p:commandLink value="Check Details" action="#{userControler.viewCustomer(customer)}" >
+
+                        </p:commandLink> 
+                 
+            </p:column>               
+                </p:dataTable>
+
+            </h:form>
+                </div>
+    </h:body>
+</html>
+

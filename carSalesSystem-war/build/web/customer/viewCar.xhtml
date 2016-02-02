@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Car sales view</title>
+        <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body> 
+         <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                           
+                        </li>
+                        <li>
+                            <a href="index.xhtml">Search Car</a>
+                        
+
+                        </li>
+                        <li>
+    
+                            <a href="../salesperson/viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="../salesperson/searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="../salesperson/viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+
+        <h:form id="viewForm">
+            <div class="img">
+
+                <img src="#{carControler.car.thumbnail}"></img>
+            </div>
+            <div class="viewCar">
+                <p:panelGrid columns="2">
+                    Model Number:
+                    <p:outputLabel id="modelNum" value="#{carControler.car.modelnum}" ></p:outputLabel>
+                    Vin Number:
+                    <p:outputLabel id="vin" value="#{carControler.car.vin}" ></p:outputLabel>
+                    Model Name:
+                    <p:outputLabel id="modelname" value="#{carControler.car.modelname}" ></p:outputLabel>
+                    Description:
+                    <p:outputLabel id="description" value="#{carControler.car.description}" ></p:outputLabel>
+                    Make:
+                    <p:outputLabel id="make" value="#{carControler.car.make}" ></p:outputLabel>
+                    Type:
+                    <p:outputLabel id="type" value="#{carControler.car.type}" ></p:outputLabel>
+                    Color:
+                    <p:outputLabel id="colour" value="#{carControler.car.colour}" ></p:outputLabel> 
+                    Miles:
+                    <p:outputLabel id="miles" value="#{carControler.car.miles}" ></p:outputLabel>  
+                    In stock:
+                    <p:outputLabel id="instock" value="#{carControler.car.instock}" ></p:outputLabel>  
+                </p:panelGrid>
+            </div>
+            <div class="buyButton">
+                <p:commandButton value="Buy" action="#{saleControler.buyCar(car)}"></p:commandButton>
+            </div>
+        </h:form>
+       
+    </h:body>
+</html>
+

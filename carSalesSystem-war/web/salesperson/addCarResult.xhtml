@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+         <title>Car sales system home</title>
+         <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body>
+                  <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                        </li>
+                        <li>
+                            <a href="../customer/index.xhtml">Search Car</a>
+
+                        </li>
+                        <li>
+                            <a href="viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <div class="searchResult">
+        <h:form>
+            <p:dataTable id="cartable" var="car" value="#{carControler.displayCarFromWeb()}">
+                <p:column>
+                    <f:facet name="header">vin </f:facet>
+                    <p:outputLabel value="#{car.vin}"></p:outputLabel>
+                </p:column>   
+                <p:column>
+                    <f:facet name="header">model name</f:facet>
+                    <p:outputLabel value="#{car.modelname}"></p:outputLabel>
+                </p:column>   
+                <p:column>
+                    <f:facet name="header">make</f:facet>
+                    <p:outputLabel value="#{car.make}"></p:outputLabel>
+
+                </p:column> 
+                <p:column>
+                    <f:facet name="header">type</f:facet>
+                    <p:outputLabel value="#{car.type}"></p:outputLabel>       
+                </p:column> 
+                <p:column>
+                    <f:facet name="header">thumbnail</f:facet>
+                    <img src="#{car.thumbnail}"></img>          
+                </p:column> 
+                <p:column>
+                    <f:facet name="header">colour</f:facet>
+                    <p:outputLabel value="#{car.colour}"></p:outputLabel>       
+                </p:column>
+                <p:column>
+                    <f:facet name="header">miles</f:facet>
+                    <p:outputLabel value="#{car.miles}"></p:outputLabel>    
+
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Option</f:facet>
+                    <p:commandButton value="Add Car" action="#{carControler.add(car)}" >
+
+                    </p:commandButton> 
+
+
+                </p:column>             
+            </p:dataTable>
+        </h:form>
+            </div>
+<!--        <h:form>
+            <h1><h:outputText value="Create/Edit"/></h1>
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="Vin:" for="vin" />
+                <h:inputText id="vin" value="{carControler.car.vin}" title="Vin" />
+                <h:outputLabel value="Modelname:" for="modelname" />
+                <h:inputText id="modelname" value="{carControler.car.modelname}" title="Modelname" />
+                <h:outputLabel value="Make:" for="make" />
+                <h:inputText id="make" value="{carControler.car.make}" title="Make" />
+                <h:outputLabel value="Type:" for="type" />
+                <h:inputText id="type" value="{carControler.car.type}" title="Type" />
+                <h:outputLabel value="Thumbnail:" for="thumbnail" />
+                <h:inputText id="thumbnail" value="{carControler.car.thumbnail}" title="Thumbnail" />
+                <h:outputLabel value="Description:" for="description" />
+                <h:inputText id="description" value="{carControler.car.description}" title="Description" />
+                <h:outputLabel value="Previewurl:" for="previewurl" />
+                <h:inputText id="previewurl" value="{carControler.car.previewurl}" title="Previewurl" />
+                <h:outputLabel value="Colour:" for="colour" />
+                <h:inputText id="colour" value="{carControler.car.colour}" title="Colour" />
+                <h:outputLabel value="Miles:" for="miles" />
+                <h:inputText id="miles" value="{carControler.car.miles}" title="Miles" />
+                <h:outputLabel value="Instock:" for="instock" />
+                <h:inputText id="instock" value="{carControler.car.instock}" title="Instock" />
+                <h:commandButton value="Save" action="{carControler.add()}"></h:commandButton>
+            </h:panelGrid>
+        </h:form>-->
+    </h:body>
+</html>
+

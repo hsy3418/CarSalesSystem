@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+       <title>Car sales system home</title>
+        <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body>
+        
+                         <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                        </li>
+                        <li>
+                            <a href="../customer/index.xhtml">Search Car</a>
+
+                        </li>
+                        <li>
+                            <a href="viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+         <div style="margin-right: 200px;margin-left: 100px"><h1 style="color: white">Edit Customer</h1></div>
+        <div class="edit">
+            <h:form>
+                <p class="title">Edit Customer</p>
+               
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Id:" for="id" />
+                    <p:inputText readonly="true" id="id" value="#{userControler.user.id}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                    <p:outputLabel value="Username:" for="username" />
+                    <p:inputText id="username" value="#{userControler.user.username}" title="username" />
+                    <p:outputLabel value="Lastname:" for="lastname" />
+                    <p:inputText id="lastname" value="#{userControler.user.lastname}" title="Lastname" />
+                    <p:outputLabel value="Firstnam:" for="firstnam" />
+                    <p:inputText id="firstnam" value="#{userControler.user.firstnam}" title="Firstnam" />
+                    <p:outputLabel value="Email:" for="email" />
+                    <p:inputText id="email" value="#{userControler.user.email}" title="Email" />
+                    <p:outputLabel value="Password:" for="password" />
+                    <p:inputText type="password" id="password" value="#{userControler.user.password}" title="Password" />
+                    <p:outputLabel value="Type:" for="type" />
+                    <p:inputText id="type" value="#{userControler.user.type}" title="Type" />
+                    <p:outputLabel value="Address:" for="address" />
+                    <p:inputText id="address" value="#{userControler.user.address}" title="Address" />
+                    <p:outputLabel value="Phone:" for="phone" />
+                    <p:inputText id="phone" value="#{userControler.user.phone}" title="Phone" />
+                    <p:outputLabel value="Mobile:" for="mobile" />
+                    <p:inputText id="mobile" value="#{userControler.user.mobile}" title="Mobile" />
+                     </p:panelGrid>
+                    <h:commandButton value="Save" action="#{userControler.edit()}"></h:commandButton>
+               
+                <p:messages style="color:red"/>
+            </h:form>
+   
+            </div>
+    </h:body>
+</html>
+

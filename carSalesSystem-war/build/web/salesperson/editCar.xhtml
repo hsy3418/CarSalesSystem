@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+          <title>Car sales system home</title>
+        <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body>
+                         <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                        </li>
+                        <li>
+                            <a href="../customer/index.xhtml">Search Car</a>
+
+                        </li>
+                        <li>
+                            <a href="viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+      
+<div style="margin-right: 200px;margin-left: 100px"><h1 style="color: white">Edit Car</h1></div>
+        <div class="edit">
+            <h:form>
+                <p class="title">Edit Car</p>
+               <p:panelGrid columns="2">
+                    <p:outputLabel value="Modelnum:" for="modelnum" />
+                    <p:inputText readonly="true" id="modelnum" value="#{carControler.car.modelnum}" title="Modelnum" required="true" requiredMessage="The Modelnum field is required."/>
+                    <p:outputLabel value="Vin:" for="vin" />
+                    <p:inputText id="vin" value="#{carControler.car.vin}" title="Vin" />
+                    <p:outputLabel value="Modelname:" for="modelname" />
+                    <p:inputText id="modelname" value="#{carControler.car.modelname}" title="Modelname" />
+                    <p:outputLabel value="Make:" for="make" />
+                    <p:inputText id="make" value="#{carControler.car.make}" title="Make" />
+                    <p:outputLabel value="Type:" for="type" />
+                    <p:inputText id="type" value="#{carControler.car.type}" title="Type" />
+                    <p:outputLabel value="Thumbnail:" for="thumbnail" />
+                    <p:inputText id="thumbnail" value="#{carControler.car.thumbnail}" title="Thumbnail" />
+                    <p:outputLabel value="Description:" for="description" />
+                    <p:inputText id="description" value="#{carControler.car.description}" title="Description" />
+                    <p:outputLabel value="Previewurl:" for="previewurl" />
+                    <p:inputText id="previewurl" value="#{carControler.car.previewurl}" title="Previewurl" />
+                    <p:outputLabel value="Colour:" for="colour" />
+                    <p:inputText id="colour" value="#{carControler.car.colour}" title="Colour" />
+                    <p:outputLabel value="Miles:" for="miles" />
+                    <p:inputText id="miles" value="#{carControler.car.miles}" title="Miles" />
+                    <p:outputLabel value="Instock:" for="instock" />
+                    <p:inputText id="instock" value="#{carControler.car.instock}" title="Instock" />
+                    
+                </p:panelGrid>
+                <h:commandButton value="Save" action="#{carControler.edit()}"></h:commandButton>
+                <p:messages style="color:red"/>
+               
+            </h:form>
+            </div>
+    </h:body>
+</html>
+

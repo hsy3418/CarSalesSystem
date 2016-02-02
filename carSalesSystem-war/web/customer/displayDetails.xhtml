@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:p="http://primefaces.org/ui" 
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+           <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+         <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                           
+                        </li>
+                        <li>
+                            <a href="index.xhtml">Search Car</a>
+                        
+
+                        </li>
+                        <li>
+    
+                            <a href="../salesperson/viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="../salesperson/searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="../salesperson/viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <div class="searchResult">
+       <p:panelGrid columns="2">
+                    User name:
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.username}" ></p:outputLabel>
+                    First name:
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.firstnam}" ></p:outputLabel>
+                    Last name:
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.lastname}" ></p:outputLabel>
+                    Email:
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.email}" ></p:outputLabel>
+                    mobile number :
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.mobile}" ></p:outputLabel>
+                    Phone number:
+                    <p:outputLabel id="modelNum" value="#{userControler.customer.phone}" ></p:outputLabel>
+                    sale
+                    <p:outputLabel id="modelNum" value="#{userControler.findSaleByCustomer().size()}" ></p:outputLabel>        
+        </p:panelGrid>
+            <h2 style="margin:20px">Purchased Records</h2>
+               
+                <p:dataTable var="sale" value="#{userControler.findSaleByCustomer()}">
+                     <p:column>
+                        <f:facet name="header">Vin Number</f:facet>
+                        <p:outputLabel value="#{sale.modelnum.vin}"></p:outputLabel>
+                    </p:column>   
+                     <p:column>
+                        <f:facet name="header">Make</f:facet>
+                        <p:outputLabel value="#{sale.modelnum.make}"></p:outputLabel>
+                    </p:column>
+                     <p:column>
+                        <f:facet name="header">Model Name</f:facet>
+                        <p:outputLabel value="#{sale.modelnum.modelname}"></p:outputLabel>
+                    </p:column> 
+
+                    <p:column>
+                        <f:facet name="header">Image</f:facet>
+                        <img src="#{sale.modelnum.thumbnail}"></img>
+                    </p:column> 
+                </p:dataTable>
+            </div>
+    </h:body>
+</html>
+

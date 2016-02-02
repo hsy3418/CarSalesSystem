@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Car sales system home</title>
+         <link href="../stylesheet.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans"></link>
+    </h:head>
+    <h:body>
+                <div class="header">
+            <div class="bar">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="../home.xhtml">Home</a>
+                        </li>
+                        <li>
+                            <a href="../customer/index.xhtml">Search Car</a>
+
+                        </li>
+                        <li>
+                            <a href="viewCars.xhtml">View Cars</a>
+
+                        </li>
+                        <li>
+                            <a href="searchCustomer.xhtml">Search Customers</a>
+                        </li>
+                        <li>
+
+                            <a href="viewCustomers.xhtml">View Customers</a>
+                        </li>  
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="buttons">
+                <h:form>
+                    <p:commandButton id="login" value="login" action="login"></p:commandButton>
+
+                    <p:commandButton id="logut" value="logut" action="#{loginBean.logout()}"></p:commandButton>
+                </h:form>
+            </div>
+        </div>
+        <div class="search">
+            <h:form>
+                <h1>Search Customers</h1>
+                <p>Enter Customer Id: </p>
+                <p:inputText id="custId" label="custId" size="32" value="#{userControler.id}">
+
+                </p:inputText>
+                <p>Enter Customer Last Name: </p>
+                <p:inputText id="custLName" label="custLName" size="32" value="#{userControler.lastName}"></p:inputText>
+                <p>Enter Customer First Name: </p>
+                <p:inputText id="custFName" label="custFName" size="32" value="#{userControler.firstName}"></p:inputText>
+                <p>Enter Customer Email: </p>
+                <p:inputText id="email" label="email" size="32" value="#{userControler.email}"></p:inputText>
+                <p>Type: </p>
+                <p:inputText readonly="true" id="type" label="type" size="32" value="customer"/>
+                <p:commandButton id="submit" value="Submit" action="displaycustomerDetails" />
+            </h:form>
+            </div>
+            <br/>
+            
+            
+    </h:body>
+
+</html>
+
